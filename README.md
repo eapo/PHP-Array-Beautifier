@@ -1,4 +1,4 @@
 PHP-Array-Beautifier
 ====================
 
-Array and Object Beatifier
+Array and Object Beautifier
