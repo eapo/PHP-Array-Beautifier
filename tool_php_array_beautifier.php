@@ -9,9 +9,6 @@ Template Name: Tool - PHP Array Beautifier
     Description:    Copy a print_r() or var_dump() string into the beautifier and clean it up, indent,
                     and add color codings for easy readability.
 */
-?>
-
-<?php
 
 class Debug {
     var $indent_size;
@@ -75,33 +72,3 @@ class Debug {
         }
     }
 }
-
-$postdata = g('to_convert');
-get_header();
-?>
-
-<div id="container" class="one-column">
-	<div id="content" role="main">
-        <h1 class="entry-title"><?php the_title(); ?></h1>
-        <div>This simple tool takes an array or object output in PHP, such as a print_r() statement and formats it in color coding to easily read your data.</div><br />
-<?php if($postdata): ?>
-<div><a href="http://phillihp.com/toolz/php-array-beautifier/">Go back</a></div>
-<div style="width: 940px; overflow: auto;">
-<?php
-    $d = new Debug();
-    $d->array_to_html($postdata);
-?>
-</div>
-<?php endif; ?>
-
-<form action="http://phillihp.com/toolz/php-array-beautifier/" method="POST">
-    <div>Code to Transform:</div>
-    <div><textarea id='to_conv' name='to_convert' rows='14' cols='120'><?php echo $postdata; ?></textarea></div>
-    <div><input type='submit' value='Beautify' /> <span onClick="document.getElementById('to_conv').value = 'Array([mode] => sets[sets] => Array([0] => 123[1] => 456[2] => 789)[etc] => Array([letters] => Array([0] => a[1] => b)[0] => pie[1] => sharks))';" style="color: blue; cursor: pointer;">Example</a></div>
-</form>
-
-<?php comments_template( '', true ); ?>
-	</div><!-- #content -->
-</div><!-- #container -->
-
-<?php get_footer(); ?>
